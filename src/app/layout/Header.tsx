@@ -2,7 +2,7 @@ import { AppBar, Box, List, ListItem, Toolbar, Typography } from "@mui/material"
 import { NavLink } from "react-router-dom";
 
 const midLinks = [
-    { title: 'Pets', path: '/Pets' }
+    { title: 'Home', path: '/Pets' }
 ]
 
 const rightLinks = [
