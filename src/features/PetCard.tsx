@@ -7,8 +7,6 @@ interface Props {
 }
 
 export default function ProductCard({ pet }: Props) {
-    const [loading, setLoading] = useState(false);
-
     return (
         <Card>
             <CardHeader

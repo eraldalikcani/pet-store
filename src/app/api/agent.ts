@@ -20,7 +20,3 @@ const agent = {
 }
 
 export default agent;
-
-function sleep() {
-    throw new Error("Function not implemented.");
-}

@@ -6,9 +6,7 @@ const midLinks = [
 ]
 
 const rightLinks = [
-    { title: 'login', path: '/login' },
-    { title: 'register', path: '/register' },
-
+    { title: 'login', path: '/login' }
 ]
 
 const navStyles = {
@@ -28,7 +26,7 @@ export default function Header() {
         <AppBar position="static" sx={{ mb: 4 }}>
             <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Box display='flex' alignItems='center'>
-                <Typography gutterBottom color='secondary' variant="h5">
+                <Typography gutterBottom color='white' variant="h5">
                     PetStore
                 </Typography>
                 </Box>
