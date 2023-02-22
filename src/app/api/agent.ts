@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+import { UserCreds } from "../models/user";
 
 
 axios.defaults.baseURL = "https://petstore.swagger.io/v2/";
@@ -11,12 +12,12 @@ const requests = {
 
 //create an object to store our requests for our catalog of available pets
 const Catalog = {
-    list: () => requests.get("pets/findByStatus?status=available"),
+    list: () => requests.get("pet/findByStatus?status=available"),
 }
 
 const User = {
-    getAvailableUser: (username: string) => requests.get("user/era1998"),
-    loginUser: (username: string, password: string) => requests.get("user/login?username=era1998&password=password"),
+    getAvailableUser: (username: string) => requests.get(`user/${username}`),
+    loginUser: (username: string, password: string) => requests.get(`user/login?username=${username}&password=${password}`),
     logoutUser: () => requests.get("user/logout")
 }
 

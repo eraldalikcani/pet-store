@@ -1,13 +1,8 @@
-import { AppBar, Box, List, ListItem, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Button, List, ListItem, Modal, Toolbar, Typography } from "@mui/material";
+import { Dispatch, SetStateAction } from "react";
 import { NavLink } from "react-router-dom";
-
-const midLinks = [
-    { title: 'Home', path: '/Pets' }
-]
-
-const rightLinks = [
-    { title: 'login', path: '/login' }
-]
+import Login from "../../features/account/Login";
+import Catalog from "../../features/Catalog";
 
 const navStyles = {
     color: 'inherit',
@@ -21,42 +16,40 @@ const navStyles = {
     }
 }
 
-export default function Header() {
+interface Props {
+    handleClickOpen: () => void;
+}
+export default function Header({handleClickOpen}:Props) {
     return (
         <AppBar position="static" sx={{ mb: 4 }}>
             <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Box display='flex' alignItems='center'>
-                <Typography gutterBottom color='white' variant="h5">
-                    PetStore
-                </Typography>
+                    <Typography gutterBottom color='white' variant="h5">
+                        PetStore
+                    </Typography>
                 </Box>
-                
+
                 <List sx={{ display: 'flex' }}>
-                    {midLinks.map(({ title, path }) => (
-                        <ListItem
-                            component={NavLink}
-                            to={path}
-                            key={path}
-                            sx={navStyles}
-                        >
-                            {title.toUpperCase()}
-                        </ListItem>
-                    ))}
+                    <ListItem
+                        component={NavLink}
+                        to='/Pets'
+                        key="/Pets"
+                        onClick={() => <Catalog />}
+                        sx={navStyles}
+                    >
+                        Home
+                    </ListItem>
                 </List>
 
                 <Box display='flex' alignItems='center'>
-                    <List sx={{ display: 'flex' }}>
-                        {rightLinks.map(({ title, path }) => (
-                            <ListItem
-                                component={NavLink}
-                                to={path}
-                                key={path}
-                                sx={navStyles}
-                            >
-                                {title.toUpperCase()}
-                            </ListItem>
-                        ))}
-                    </List>
+                    <ListItem 
+                        component={NavLink}
+                        to='/login'
+                        key="/login"
+                        onClick={handleClickOpen}
+                        sx={navStyles}>
+                        Login
+                    </ListItem>
                 </Box>
             </Toolbar>
         </AppBar>

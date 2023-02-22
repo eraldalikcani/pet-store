@@ -3,31 +3,31 @@ import { useState } from "react";
 import { Pet } from "../app/models/pet";
 
 interface Props {
-    pet: Pet;
+    pets: Pet;
 }
 
-export default function ProductCard({ pet }: Props) {
+export default function PetCard({ pets }: Props) {
     return (
         <Card>
             <CardHeader
                 avatar={
                     <Avatar sx={{bgcolor: 'secondary.main'}}>
-                        {pet.name.charAt(0).toUpperCase()}
+                        {pets.name?.charAt(0).toUpperCase()}
                     </Avatar>
                 }
-                title={pet.name}
+                title={pets.name}
                 titleTypographyProps={{
                     sx: {fontWeight: 'bold', color: 'primary.main'}
                 }}
             />
             <CardMedia
                 sx={{ height: 140, backgroundSize: 'contain', bgcolor: 'primary.light' }}
-                image={pet.photoUrls[0]}
-                title={pet.name} 
+                image={pets.photoUrls[0]}
+                title={pets.name} 
             />
             <CardContent>
                 <Typography gutterBottom color='secondary' variant="h5">
-                    Status: {pet.status}
+                    Status: {pets.status}
                 </Typography>
             </CardContent>
         </Card>

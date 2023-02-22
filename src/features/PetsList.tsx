@@ -12,7 +12,7 @@ export default function PetsList({ pets }: Props) {
         <Grid container spacing={4}>
             {pets.map((pet: Pet,index: any) => (
                 <Grid item xs={3} key={index}>
-                    <PetCard pet={pet} />
+                    <PetCard pets={pet} />
                 </Grid>
             ))}
         </Grid>
