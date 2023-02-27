@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import agent from "../app/api/agent";
-import { Pet } from "../app/models/pet";
+import agent from "../../app/api/agent";
+import { Pet } from "../../app/models/pet";
 import PetsList from "./PetsList";
 
 export default function Catalog() {

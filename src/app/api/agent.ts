@@ -1,5 +1,7 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
+import { toast } from "react-toastify";
 import { UserCreds } from "../models/user";
+import { router } from "../router/Routes";
 
 
 axios.defaults.baseURL = "https://petstore.swagger.io/v2/";
@@ -16,9 +18,9 @@ const Catalog = {
 }
 
 const User = {
-    getAvailableUser: (username: string) => requests.get(`user/${username}`),
-    loginUser: (username: string, password: string) => requests.get(`user/login?username=${username}&password=${password}`),
-    logoutUser: () => requests.get("user/logout")
+    current: (username: string) => requests.get(`user/${username}`),
+    login: (username: string, password: string) => requests.get(`user/login?username=${username}&password=${password}`),
+    logout: () => requests.get("user/logout")
 }
 
 const agent = {

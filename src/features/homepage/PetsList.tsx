@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import { Pet } from "../app/models/pet";
+import { Pet } from "../../app/models/pet";
 import PetCard from "./PetCard";
 
 

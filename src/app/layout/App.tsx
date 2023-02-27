@@ -1,37 +1,23 @@
-import { Button, Container } from "@mui/material";
-import path from "path";
-import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { Route, Routes } from 'react-router-dom';
-import Login from "../../features/account/Login";
-import Catalog from "../../features/Catalog";
-import agent from "../api/agent";
-import { User } from "../models/user";
+import { Container } from "@mui/material";
+import { Outlet, useLocation } from "react-router-dom";
+import HomePage from "../../features/homepage/HomePage";
 import Header from "./Header";
+import { observer } from 'mobx-react-lite';
+
 
 function App() {
-  const [open, setOpen] = useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
+  const location = useLocation();
   return (
     <>
-      <Header handleClickOpen={handleClickOpen} />
-      {null ? <Login handleClose={handleClose} open={open}/> : <Catalog />}
-      <Container>
-        <Routes>
-          <Route path="/Pets" element={<Catalog />} />
-          <Route path="/login" element={<Login handleClose={handleClose} open={open}/>} />
-        </Routes>
-      </Container>
+      {location.pathname === '/' ? <HomePage /> : (
+        <>
+          <Header />
+          <Container style={{ marginTop: '7em' }}>
+            <Outlet />
+          </Container>
+        </>
+      )}
     </>
   );
 }
-
-export default App;
+export default observer(App);

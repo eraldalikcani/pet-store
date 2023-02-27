@@ -1,6 +1,6 @@
 import { Avatar, Card, CardContent, CardHeader, CardMedia, Typography } from "@mui/material";
 import { useState } from "react";
-import { Pet } from "../app/models/pet";
+import { Pet } from "../../app/models/pet";
 
 interface Props {
     pets: Pet;
